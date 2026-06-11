@@ -5,12 +5,14 @@ interface AdminAuthModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: () => void;
+  correctPassword?: string;
 }
 
 export default function AdminAuthModal({
   isOpen,
   onClose,
   onSuccess,
+  correctPassword = "admin246",
 }: AdminAuthModalProps) {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -19,7 +21,7 @@ export default function AdminAuthModal({
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (password === "admin123") {
+    if (password === correctPassword) {
       onSuccess();
       setPassword("");
       setErrorMsg("");
@@ -64,7 +66,7 @@ export default function AdminAuthModal({
             <input
               id="admin-auth-pass-input"
               type="password"
-              placeholder="e.g. admin123"
+              placeholder="e.g. admin246"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -103,8 +105,8 @@ export default function AdminAuthModal({
         </form>
 
         <div className="mt-4 text-center">
-          <span className="text-[9px] font-mono text-slate-600">
-            Hint: Use standard credentials &apos;admin123&apos;
+          <span className="text-[9px] font-mono text-slate-600 font-medium">
+            Hint: Default access key is &apos;admin246&apos; or your saved configuration
           </span>
         </div>
       </div>

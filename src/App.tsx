@@ -27,9 +27,16 @@ export default function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
+  const [adminPassword, setAdminPassword] = useState("admin246");
 
   // Initialize products on load
   useEffect(() => {
+    // Load custom admin password if set
+    const savedPassword = localStorage.getItem("nexus_gear_admin_password");
+    if (savedPassword) {
+      setAdminPassword(savedPassword);
+    }
+
     const stored = localStorage.getItem("nexus_gear_products");
     if (stored) {
       try {
@@ -182,6 +189,11 @@ export default function App() {
     setIsAdminPanelOpen(false);
   };
 
+  const handleUpdatePassword = (newPass: string) => {
+    setAdminPassword(newPass);
+    localStorage.setItem("nexus_gear_admin_password", newPass);
+  };
+
   // Filtering Logic
   const filteredProducts = products.filter((p) => {
     const matchesCategory =
@@ -311,6 +323,7 @@ export default function App() {
         isOpen={isAdminModalOpen}
         onClose={() => setIsAdminModalOpen(false)}
         onSuccess={handleAdminAuthSuccess}
+        correctPassword={adminPassword}
       />
 
       {isAdmin && isAdminPanelOpen && (
@@ -320,6 +333,8 @@ export default function App() {
           onDeleteProduct={handleDeleteProduct}
           onEditProductPrice={handleEditProductPrice}
           onClose={() => setIsAdminPanelOpen(false)}
+          currentPassword={adminPassword}
+          onUpdatePassword={handleUpdatePassword}
         />
       )}
 
