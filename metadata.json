@@ -1,0 +1,6 @@
+{
+  "name": "Naira Electronics Shop",
+  "description": "A high-performance modern e-commerce platform for electronics with a dark tech style and custom administrator workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
