@@ -33,19 +33,19 @@ export default function Navbar({
   const categories = ["All", ...Object.values(Category)];
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-blue-950/40 bg-[#070b14]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Brand Logo & Name */}
-        <div className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-radial from-blue-600 to-cyan-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-            <Sparkles className="h-5 w-5 text-white animate-pulse" />
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 border border-slate-905 shadow-sm">
+            <Sparkles className="h-4.5 w-4.5 text-yellow-400" />
           </div>
           <div>
-            <h1 className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
-              NEXUS<span className="text-cyan-400">GEAR</span>
+            <h1 className="font-display text-base font-extrabold tracking-tight text-slate-900 sm:text-lg">
+              NEXUS<span className="text-amber-500">GEAR</span>
             </h1>
-            <p className="-mt-1 text-[10px] font-mono tracking-widest text-[#5d6d84] uppercase">
+            <p className="-mt-1 text-[9px] font-mono tracking-widest text-slate-400 uppercase font-semibold">
               Premium Tech Hub
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function Navbar({
         <div className="hidden max-w-md flex-1 px-8 md:block">
           <div className="relative">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <Search className="h-4 w-4 text-slate-400" />
+              <Search className="h-4 w-4 text-slate-450" />
             </span>
             <input
               id="desktop-search-input"
@@ -63,7 +63,7 @@ export default function Navbar({
               placeholder="Search premium electronics..."
               value={searchValue}
               onChange={handleSearchKeyPress}
-              className="w-full rounded-xl border border-slate-800 bg-[#0e1423] py-2 pl-9 pr-4 text-xs font-sans text-white placeholder-slate-500 outline-none transition-all duration-300 focus:border-cyan-500 focus:bg-[#12192d] focus:ring-1 focus:ring-cyan-500"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pl-9 pr-4 text-xs font-sans text-slate-850 placeholder-slate-400 outline-none transition-all duration-300 focus:border-amber-400 focus:bg-white focus:ring-1 focus:ring-amber-400 shadow-inner"
             />
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function Navbar({
             <button
               id="admin-logout-btn"
               onClick={onAdminToggle}
-              className="flex items-center gap-1.5 rounded-xl border border-red-950 bg-red-950/10 px-3 py-2 text-xs font-medium text-red-400 transition-all duration-200 hover:bg-red-950/35"
+              className="flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-semibold text-red-650 transition-all duration-200 hover:bg-red-105"
               title="Exit Admin Workspace"
             >
               <LogOut className="h-3.5 w-3.5" />
@@ -86,10 +86,10 @@ export default function Navbar({
             <button
               id="admin-login-trigger"
               onClick={onTriggerAdminAuth}
-              className="flex items-center gap-1.5 rounded-xl border border-blue-950/80 bg-[#0c162b] px-3 py-2 text-xs font-medium text-blue-400 transition-all duration-200 hover:border-cyan-500/50 hover:bg-slate-900"
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:border-amber-450 hover:bg-slate-55"
               title="Administrator Sign In"
             >
-              <Lock className="h-3.5 w-3.5" />
+              <Lock className="h-3.5 w-3.5 text-slate-500" />
               <span className="hidden sm:inline">Admin Portal</span>
             </button>
           )}
@@ -98,11 +98,11 @@ export default function Navbar({
           <button
             id="navbar-cart-toggle"
             onClick={onCartToggle}
-            className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-800 bg-[#0c1324] text-slate-300 transition-all duration-200 hover:border-cyan-500/50 hover:bg-[#11192e] hover:text-white"
+            className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-all duration-250 hover:border-amber-400 hover:bg-slate-55"
           >
             <ShoppingCart className="h-4 w-4" />
             {cartCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-cyan-500 px-1 text-[9px] font-bold text-black animate-bounce shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+              <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-[17px] items-center justify-center rounded-full bg-amber-450 px-1 text-[9px] font-extrabold text-slate-950 shadow">
                 {cartCount}
               </span>
             )}
@@ -111,7 +111,7 @@ export default function Navbar({
       </div>
 
       {/* Categories & Search on Mobile Grid */}
-      <div className="border-t border-slate-900 bg-[#060a12] px-4 py-2 sm:px-6 md:px-8">
+      <div className="border-t border-slate-100 bg-[#FAF9F5] px-4 py-2 sm:px-6 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           
           {/* Category Chips Container */}
@@ -121,10 +121,10 @@ export default function Navbar({
                 id={`cat-btn-${category.toLowerCase()}`}
                 key={category}
                 onClick={() => onCategorySelect(category)}
-                className={`flex shrink-0 items-center justify-center rounded-lg px-3 py-1 text-xs font-medium transition-all duration-200 ${
+                className={`flex shrink-0 items-center justify-center rounded-lg px-3 py-1 text-xs font-semibold transition-all duration-200 ${
                   selectedCategory === category
-                    ? "bg-cyan-500 text-black shadow-[0_0_8px_rgba(6,182,212,0.25)]"
-                    : "bg-[#0c1324] text-slate-400 border border-slate-800/60 hover:border-slate-700 hover:text-white"
+                    ? "bg-slate-900 text-white shadow-sm font-semibold"
+                    : "bg-white text-slate-650 border border-slate-200 hover:border-amber-400 hover:text-slate-900"
                 }`}
               >
                 {category}
@@ -143,7 +143,7 @@ export default function Navbar({
               placeholder="Search modern devices..."
               value={searchValue}
               onChange={handleSearchKeyPress}
-              className="w-full rounded-xl border border-slate-800 bg-[#0c1324] py-1.5 pl-9 pr-4 text-xs font-sans text-white placeholder-slate-500 outline-none transition-all duration-300 focus:border-cyan-500 focus:bg-[#12192d] focus:ring-1 focus:ring-cyan-500"
+              className="w-full rounded-xl border border-slate-200 bg-white py-1.5 pl-9 pr-4 text-xs font-sans text-slate-800 placeholder-slate-400 outline-none transition-all duration-300 focus:border-amber-400 shadow-sm"
             />
           </div>
 

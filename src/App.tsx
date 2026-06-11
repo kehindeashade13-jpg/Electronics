@@ -207,7 +207,7 @@ export default function App() {
   const cartTotalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div id="nexus-app-root" className="min-h-screen bg-[#070b14] flex flex-col text-[#f3f4f6]">
+    <div id="nexus-app-root" className="min-h-screen bg-[#faf9f5] flex flex-col text-slate-800">
       
       {/* Navbar Container */}
       <Navbar
@@ -231,13 +231,13 @@ export default function App() {
       <main className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
         
         {/* Active Title bar for current grid selection */}
-        <div id="store-grid-section" className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between border-b border-slate-900 pb-5 mb-8">
+        <div id="store-grid-section" className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between border-b border-slate-200 pb-5 mb-8">
           <div>
-            <div className="flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-cyan-400 uppercase">
-              <Sparkles className="h-4 w-4 text-cyan-400 animate-spin-slow" />
+            <div className="flex items-center gap-1.5 text-xs font-mono font-bold tracking-wide text-amber-500 uppercase">
+              <Sparkles className="h-4 w-4 text-amber-500" />
               Nexus Hardware Catalog
             </div>
-            <h3 className="font-display text-xl font-bold text-white sm:text-2xl mt-1">
+            <h3 className="font-display text-xl font-bold text-slate-900 sm:text-2xl mt-1">
               {selectedCategory === "All" ? "All Premium Hardware" : `${selectedCategory} Collection`}
             </h3>
           </div>
@@ -252,10 +252,10 @@ export default function App() {
               <button
                 id="reset-store-defaults-btn"
                 onClick={handleResetCatalog}
-                className="flex items-center gap-1 rounded bg-[#0b1424] border border-slate-800/80 hover:border-cyan-500/30 px-2 py-1 text-[11px] text-slate-400 hover:text-white transition-all ml-4"
+                className="flex items-center gap-1 rounded bg-white border border-slate-200 hover:border-yellow-400 px-2.5 py-1 text-[11px] text-slate-700 hover:text-slate-900 shadow-sm transition-all ml-4"
                 title="Restore Storefront Default Mockups"
               >
-                <RotateCcw className="h-3 w-3 text-cyan-400" />
+                <RotateCcw className="h-3 w-3 text-amber-500" />
                 Factory Restore
               </button>
             )}
@@ -264,11 +264,11 @@ export default function App() {
 
         {/* Display Grid */}
         {filteredProducts.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-20 text-center rounded-2xl border border-dashed border-slate-900 bg-[#080d17]/40">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-slate-600 border border-slate-900">
+          <div className="flex flex-col items-center justify-center py-20 text-center rounded-2xl border border-dashed border-slate-300 bg-white shadow-sm">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-50 text-slate-400 border border-slate-100">
               <ShoppingBag className="h-5 w-5" />
             </div>
-            <h4 className="mt-4 text-sm font-semibold text-white">No items found</h4>
+            <h4 className="mt-4 text-sm font-semibold text-slate-900">No items found</h4>
             <p className="mt-1 text-xs text-slate-500 max-w-xs px-4">
               Try adjusting your query filter or browser category to explore more high-performance electronics.
             </p>
@@ -288,11 +288,11 @@ export default function App() {
           </div>
         )}
 
-        {/* Floating Admin Trigger Action Info Card when not logged in to make it fully explicit and transparent */}
+        {/* Floating Admin Trigger Action Info Card when not logged in */}
         {!isAdmin && (
-          <div className="mt-12 rounded-xl border border-blue-950/40 bg-blue-950/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs leading-relaxed max-w-4xl mx-auto">
-            <div className="flex items-center gap-2 text-slate-400">
-              <Info className="h-4 w-4 text-cyan-500 shrink-0" />
+          <div className="mt-12 rounded-xl border border-yellow-250 bg-yellow-50/50 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs leading-relaxed max-w-4xl mx-auto shadow-sm">
+            <div className="flex items-center gap-2 text-slate-700">
+              <Info className="h-4 w-4 text-amber-500 shrink-0" />
               <span>
                 Want to test editing price values, deleting listed gadgets, or uploading custom mock products?
               </span>
@@ -300,7 +300,7 @@ export default function App() {
             <button
               id="admin-info-trigger"
               onClick={() => setIsAdminModalOpen(true)}
-              className="inline-flex self-start sm:self-auto items-center gap-1 text-cyan-400 hover:text-cyan-300 font-bold tracking-wider uppercase text-[10px]"
+              className="inline-flex self-start sm:self-auto items-center gap-1 text-amber-600 hover:text-amber-700 font-bold tracking-wider uppercase text-[10px]"
             >
               Sign in as Admin
               <Lock className="h-3.5 w-3.5" />
@@ -339,22 +339,12 @@ export default function App() {
       )}
 
       {/* Styled Footer */}
-      <footer className="mt-auto border-t border-slate-950 bg-[#05080f] py-8 text-center">
+      <footer className="mt-auto border-t border-slate-200 bg-white py-8 text-center shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-slate-600 font-mono">
-              © {new Date().getFullYear()} NEXUSGEAR Lagos. Licensed for AI Studio E-commerce Simulation.
+          <div className="flex flex-col items-center justify-center gap-4">
+            <p className="text-xs text-slate-500 font-mono">
+              © {new Date().getFullYear()} NEXUSGEAR Lagos.
             </p>
-            <div className="flex items-center gap-4 text-[10px] text-slate-600 font-mono">
-              <button
-                id="footer-admin-toggle"
-                onClick={handleToggleAdminPortal}
-                className="hover:text-cyan-400 transition-colors flex items-center gap-1"
-              >
-                <Terminal className="h-3 w-3" />
-                {isAdmin ? "Admin Desk" : "Owner Workspace Secret Access"}
-              </button>
-            </div>
           </div>
         </div>
       </footer>

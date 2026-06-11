@@ -68,7 +68,7 @@ export default function CartDrawer({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-50 bg-[#02050b]/80 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm"
           />
 
           {/* Sliding drawer panel */}
@@ -77,20 +77,20 @@ export default function CartDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 220 }}
-            className="fixed right-0 top-0 bottom-0 z-50 flex h-full w-full max-w-md flex-col bg-[#070b14] border-l border-slate-900 shadow-2xl"
+            className="fixed right-0 top-0 bottom-0 z-50 flex h-full w-full max-w-md flex-col bg-white border-l border-slate-200 shadow-2xl"
           >
             {/* Drawer Header */}
-            <div className="flex h-16 items-center justify-between border-b border-slate-900 px-6">
+            <div className="flex h-16 items-center justify-between border-b border-slate-200 px-6">
               <div className="flex items-center gap-2">
-                <ShoppingBag className="h-4 w-4 text-cyan-400" />
-                <h2 className="font-display text-base font-bold text-white">
+                <ShoppingBag className="h-4 w-4 text-amber-500" />
+                <h2 className="font-display text-base font-extrabold text-slate-900">
                   Your Tech Cart ({cartItems.length} styles)
                 </h2>
               </div>
               <button
                 id="close-cart-btn"
                 onClick={onClose}
-                className="rounded-lg p-1 text-slate-400 hover:bg-slate-900 hover:text-white transition-all"
+                className="rounded-lg p-1 text-slate-400 hover:bg-slate-105 hover:text-slate-800 transition-all border border-transparent hover:border-slate-200"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -98,27 +98,27 @@ export default function CartDrawer({
 
             {isCheckoutSuccess ? (
               /* Success Checkout Screen */
-              <div className="flex flex-1 flex-col items-center justify-center p-8 text-center bg-radial from-[#0e162a]/90 to-[#070b14]">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                  <ClipboardCheck className="h-8 w-8 text-emerald-400" />
+              <div className="flex flex-1 flex-col items-center justify-center p-8 text-center bg-[#FAF9F5]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 border border-emerald-155 text-emerald-500 shadow-sm">
+                  <ClipboardCheck className="h-8 w-8 text-emerald-500" />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-bold text-white">
+                <h3 className="mt-6 font-display text-xl font-bold text-slate-900">
                   Order Successfully Placed!
                 </h3>
-                <p className="mt-3 text-xs leading-relaxed text-slate-400">
-                  Thank you for shopping with <span className="text-cyan-400 font-semibold">NEXUSGEAR</span>. 
+                <p className="mt-3 text-xs leading-relaxed text-slate-600">
+                  Thank you for shopping with <span className="text-amber-600 font-bold">NEXUSGEAR</span>. 
                   Our dispatch logistics officer will contact you within the next 2 hours to confirm your swift delivery.
                 </p>
 
-                <div className="mt-8 rounded-xl bg-slate-900/60 p-4 border border-slate-800 text-left w-full">
-                  <span className="text-[10px] font-mono tracking-widest text-[#5d6d84] uppercase block mb-2">
+                <div className="mt-8 rounded-xl bg-white p-4 border border-slate-200 text-left w-full shadow-sm">
+                  <span className="text-[10px] font-mono tracking-widest text-slate-400 font-bold uppercase block mb-2">
                     DELIVERY SUMMARY
                   </span>
-                  <div className="space-y-1.5 text-xs text-slate-300">
-                    <div><span className="text-slate-500">Recipient:</span> {shippingName}</div>
-                    <div><span className="text-slate-500">Contact No:</span> {shippingPhone}</div>
-                    <div><span className="text-slate-500">Address:</span> {shippingAddress}, {shippingState}</div>
-                    <div className="pt-2 border-t border-slate-800 flex justify-between font-mono font-bold text-white">
+                  <div className="space-y-1.5 text-xs text-slate-700">
+                    <div><span className="text-slate-500 font-semibold">Recipient:</span> {shippingName}</div>
+                    <div><span className="text-slate-500 font-semibold">Contact No:</span> {shippingPhone}</div>
+                    <div><span className="text-slate-500 font-semibold">Address:</span> {shippingAddress}, {shippingState}</div>
+                    <div className="pt-2 border-t border-slate-205 flex justify-between font-mono font-extrabold text-slate-905">
                       <span>Paid Total:</span>
                       <span>{formatNaira(totalAmount)}</span>
                     </div>
@@ -128,7 +128,7 @@ export default function CartDrawer({
                 <button
                   id="checkout-success-close"
                   onClick={closeAndReset}
-                  className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black py-3 text-xs font-semibold"
+                  className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-amber-450 hover:bg-slate-950 hover:text-white text-black py-3 text-xs font-bold transition-all duration-300 shadow-sm"
                 >
                   <Sparkles className="h-4 w-4" />
                   Continue Browsing
@@ -136,11 +136,11 @@ export default function CartDrawer({
               </div>
             ) : cartItems.length === 0 ? (
               /* Empty Cart Screen */
-              <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 border border-slate-800 text-slate-500">
+              <div className="flex flex-1 flex-col items-center justify-center p-8 text-center bg-white">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-50 border border-slate-200 text-slate-400">
                   <ShoppingBag className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 text-sm font-semibold text-white">
+                <h3 className="mt-4 text-sm font-semibold text-slate-800">
                   Your cart is empty
                 </h3>
                 <p className="mt-1 text-xs text-slate-500 max-w-xs">
@@ -149,16 +149,16 @@ export default function CartDrawer({
                 <button
                   id="cart-empty-browse-cta"
                   onClick={onClose}
-                  className="mt-6 rounded-lg bg-[#0e1423] border border-slate-800 px-4 py-2 text-xs font-medium text-cyan-400 hover:border-cyan-500/50 hover:bg-[#12192d] transition-all"
+                  className="mt-6 rounded-lg bg-slate-55 border border-slate-200 px-4 py-2 text-xs font-bold text-amber-600 hover:border-amber-400 hover:bg-slate-100 transition-all shadow-sm"
                 >
                   Start Exploring
                 </button>
               </div>
             ) : (
               /* Regular Cart Content & Form Layout */
-              <div className="flex flex-1 flex-col overflow-y-auto">
+              <div className="flex flex-1 flex-col overflow-y-auto bg-white">
                 {/* Scrollable Items List */}
-                <div className="flex-1 divide-y divide-slate-900/40 px-6 py-4">
+                <div className="flex-1 divide-y divide-slate-100 px-6 py-4">
                   {cartItems.map((item) => (
                     <div
                       id={`cart-item-${item.product.id}`}
@@ -169,13 +169,13 @@ export default function CartDrawer({
                         src={item.product.imageUrl}
                         alt={item.product.name}
                         referrerPolicy="no-referrer"
-                        className="h-12 w-12 rounded-lg object-cover bg-[#0d1426]"
+                        className="h-12 w-12 rounded-lg object-cover bg-slate-50 border border-slate-100/80"
                       />
                       <div className="flex-1">
-                        <h4 className="text-xs font-semibold text-white line-clamp-1">
+                        <h4 className="text-xs font-bold text-slate-905 line-clamp-1">
                           {item.product.name}
                         </h4>
-                        <span className="text-[10px] text-slate-500 font-mono">
+                        <span className="text-[10px] text-slate-400 font-mono">
                           {formatNaira(item.product.price)} each
                         </span>
                         
@@ -184,17 +184,17 @@ export default function CartDrawer({
                           <button
                             id={`qty-minus-${item.product.id}`}
                             onClick={() => onUpdateQuantity(item.product.id, -1)}
-                            className="flex h-5 w-5 items-center justify-center rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-white"
+                            className="flex h-5 w-5 items-center justify-center rounded bg-slate-50 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-100"
                           >
                             <Minus className="h-3 w-3" />
                           </button>
-                          <span className="text-xs font-semibold text-white w-4 text-center">
+                          <span className="text-xs font-bold text-slate-900 w-4 text-center">
                             {item.quantity}
                           </span>
                           <button
                             id={`qty-plus-${item.product.id}`}
                             onClick={() => onUpdateQuantity(item.product.id, 1)}
-                            className="flex h-5 w-5 items-center justify-center rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-white"
+                            className="flex h-5 w-5 items-center justify-center rounded bg-slate-50 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-100"
                           >
                             <Plus className="h-3 w-3" />
                           </button>
@@ -202,14 +202,14 @@ export default function CartDrawer({
                       </div>
 
                       <div className="text-right">
-                        <span className="text-xs font-bold font-mono text-cyan-400">
+                        <span className="text-xs font-extrabold font-mono text-amber-600">
                           {formatNaira(item.product.price * item.quantity)}
                         </span>
                         <div>
                           <button
                             id={`cart-item-remove-${item.product.id}`}
                             onClick={() => onRemoveItem(item.product.id)}
-                            className="mt-2 text-slate-500 hover:text-red-400 transition-colors"
+                            className="mt-2 text-slate-400 hover:text-red-500 transition-colors"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
                           </button>
@@ -220,10 +220,10 @@ export default function CartDrawer({
                 </div>
 
                 {/* Subtotal & Delivery Details Form Area */}
-                <div className="border-t border-slate-900/80 bg-[#060a12] p-6">
+                <div className="border-t border-slate-100 bg-[#FAF9F5]/90 p-6 shadow-inner">
                   {/* Delivery details form */}
                   <form onSubmit={handleCheckoutSubmit} className="space-y-3 mb-4">
-                    <span className="text-[10px] font-mono tracking-widest text-[#5d6d84] uppercase block">
+                    <span className="text-[10px] font-mono tracking-widest text-slate-400 font-bold uppercase block">
                       DELIVERY ADDRESS DETAILS
                     </span>
                     <div className="grid grid-cols-2 gap-2">
@@ -233,16 +233,16 @@ export default function CartDrawer({
                         placeholder="Recipient Name"
                         value={shippingName}
                         onChange={(e) => setShippingName(e.target.value)}
-                        className="w-full rounded-lg border border-slate-800 bg-[#0c1221] px-3 py-1.5 text-xs text-white placeholder-slate-600 outline-none focus:border-cyan-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-900 placeholder-slate-405 outline-none focus:border-amber-400"
                         required
                       />
                       <input
                         id="checkout-phone"
                         type="tel"
-                        placeholder="Phone Number (e.g. 080...)"
+                        placeholder="Phone Number"
                         value={shippingPhone}
                         onChange={(e) => setShippingPhone(e.target.value)}
-                        className="w-full rounded-lg border border-slate-800 bg-[#0c1221] px-3 py-1.5 text-xs text-white placeholder-slate-600 outline-none focus:border-cyan-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-900 placeholder-slate-405 outline-none focus:border-amber-400"
                         required
                       />
                     </div>
@@ -250,17 +250,17 @@ export default function CartDrawer({
                       <input
                         id="checkout-address"
                         type="text"
-                        placeholder="Street Address, City or Area"
+                        placeholder="Street Address, Area"
                         value={shippingAddress}
                         onChange={(e) => setShippingAddress(e.target.value)}
-                        className="col-span-2 w-full rounded-lg border border-slate-800 bg-[#0c1221] px-3 py-1.5 text-xs text-white placeholder-slate-600 outline-none focus:border-cyan-500"
+                        className="col-span-2 w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-900 placeholder-slate-405 outline-none focus:border-amber-400"
                         required
                       />
                       <select
                         id="checkout-state"
                         value={shippingState}
                         onChange={(e) => setShippingState(e.target.value)}
-                        className="w-full rounded-lg border border-slate-800 bg-[#0c1221] px-2 py-1.5 text-xs text-slate-300 outline-none focus:border-cyan-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-700 outline-none focus:border-amber-400"
                       >
                         <option value="Lagos">Lagos</option>
                         <option value="Abuja">Abuja</option>
@@ -271,14 +271,14 @@ export default function CartDrawer({
                       </select>
                     </div>
 
-                    <div className="border-t border-slate-800/40 pt-3">
+                    <div className="border-t border-slate-200 pt-3">
                       <div className="flex items-center justify-between font-mono">
-                        <span className="text-xs text-slate-400 uppercase">Subtotal</span>
-                        <span className="text-lg font-bold text-white">
+                        <span className="text-xs text-slate-400 font-bold uppercase">Subtotal</span>
+                        <span className="text-lg font-extrabold text-slate-900 animate-pulse">
                           {formatNaira(totalAmount)}
                         </span>
                       </div>
-                      <p className="mt-1 text-[10px] text-slate-500">
+                      <p className="mt-1 text-[10px] text-slate-450 text-slate-500 font-medium">
                         * Free standard fulfillment. Logistics handles secure escrow dispatch.
                       </p>
                     </div>
@@ -286,7 +286,7 @@ export default function CartDrawer({
                     <button
                       id="place-checkout-submit"
                       type="submit"
-                      className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black py-3 text-xs font-bold transition-all duration-300 shadow-[0_4px_15px_rgba(6,182,212,0.25)]"
+                      className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 hover:bg-slate-950 hover:text-white text-black py-3 text-xs font-extrabold transition-all duration-300 shadow-sm"
                     >
                       Complete Checkout
                       <ArrowRight className="h-4 w-4" />
