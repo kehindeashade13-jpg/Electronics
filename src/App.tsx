@@ -40,7 +40,25 @@ export default function App() {
     const stored = localStorage.getItem("nexus_gear_products");
     if (stored) {
       try {
-        const parsed: Product[] = JSON.parse(stored);
+        let parsed: Product[] = JSON.parse(stored);
+        
+        // Seamlessly update default products having old placeholder/duplicate imageUrls
+        parsed = parsed.map((p) => {
+          if (p.id === "prod-6" && p.imageUrl.includes("photo-1618384887929")) {
+            return {
+              ...p,
+              imageUrl: "https://images.unsplash.com/photo-1658422685846-53b8b512c4ed?auto=format&fit=crop&w=600&q=80"
+            };
+          }
+          if (p.id === "prod-7" && p.imageUrl.includes("photo-1622445262465")) {
+            return {
+              ...p,
+              imageUrl: "https://images.unsplash.com/photo-1701048825700-1c9cdcb49141?auto=format&fit=crop&w=600&q=80"
+            };
+          }
+          return p;
+        });
+
         // Make sure newly added seed products are integrated into local storage if they don't exist yet
         const parsedIds = new Set(parsed.map((p) => p.id));
         const missingSeeds = INITIAL_PRODUCTS.filter((p) => !parsedIds.has(p.id));
@@ -50,6 +68,7 @@ export default function App() {
           localStorage.setItem("nexus_gear_products", JSON.stringify(updatedList));
         } else {
           setProducts(parsed);
+          localStorage.setItem("nexus_gear_products", JSON.stringify(parsed));
         }
       } catch (err) {
         console.error("Failed to parse stored products, falling back to seeds", err);

@@ -182,7 +182,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     description: "Full aluminum custom hot-swappable mechanical keyboard featuring double-gasket layout and QMK/VIA.",
     price: 260000,
     category: Category.Accessories,
-    imageUrl: "https://images.unsplash.com/photo-1618384887929-16ec33faf9c1?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1658422685846-53b8b512c4ed?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: "prod-7",
@@ -190,7 +190,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     description: "Ultra-high capacity external battery pack with 200W total smart outputs and smart interactive digital display.",
     price: 145000,
     category: Category.Accessories,
-    imageUrl: "https://images.unsplash.com/photo-1622445262465-2481c4574875?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1701048825700-1c9cdcb49141?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: "prod-ac1",
